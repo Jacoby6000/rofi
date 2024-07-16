@@ -11,7 +11,7 @@
 ## style-6   style-7   style-8   style-9   style-10
 
 # Current Theme
-dir="$(dirname -- "${BASH_SOURCE[0]}")"
+dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 theme='style-1'
 
 # CMDs

@@ -28,7 +28,7 @@ else
     ROFI_DIR="$ROFI_INSTALL_DIR"
 fi
 
-DIR="$(dirname -- "${BASH_SOURCE[0]}")"
+DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # Install Fonts
 install_fonts() {

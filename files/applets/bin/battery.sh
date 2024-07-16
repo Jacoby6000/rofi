@@ -6,7 +6,7 @@
 ## Applets : Battery
 
 # Import Current Theme
-source "$(dirname -- "${BASH_SOURCE[0]}")"/../shared/theme.bash
+source "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/../shared/theme.bash
 theme="$type/$style"
 
 # Battery Info
