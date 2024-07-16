@@ -32,7 +32,7 @@
       '';
 
       installPhase = ''
-        ./setup.sh 
+        ./setup.sh $out $out/share/fonts/ttf
       '';
     };
   });
