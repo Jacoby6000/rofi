@@ -123,7 +123,7 @@ theme='style-1'
 
 **`Change Colors` :** Edit `~/.config/rofi/launchers/type-X/shared/colors.rasi` file and edit the following line to use the color-scheme you like.
 ```css
-@import "~/.config/rofi/colors/onedark.rasi"
+@import "../../../colors/onedark.rasi"
 ```
 
 > Colors in `type-5`, `type-6` and `type-7` are hard-coded (based on image colors) and can be changed by editing the respective **`style-X.rasi`** file.
@@ -274,7 +274,7 @@ style='style-1.rasi'
 
 **`Change Colors` :** Edit `~/.config/rofi/applets/shared/colors.rasi` file and edit the following line to use the color-scheme you like.
 ```css
-@import "~/.config/rofi/colors/onedark.rasi"
+@import "../../../colors/onedark.rasi"
 ```
 
 > Colors in `type-4` and `type-5` are hard-coded (based on image colors) and can be changed by editing the respective **`style-X.rasi`** file.
@@ -371,7 +371,7 @@ theme='style-1'
 
 **`Change Colors` :** Edit `~/.config/rofi/powermenu/type-X/shared/colors.rasi` file and edit the following line to use the color-scheme you like.
 ```css
-@import "~/.config/rofi/colors/onedark.rasi"
+@import "../../../colors/onedark.rasi"
 ```
 
 > Colors in `type-5` and `type-6` are hard-coded (based on image colors) and can be changed by editing the respective **`style-X.rasi`** file.
