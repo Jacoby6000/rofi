@@ -19,12 +19,7 @@
       name = "rofi-extended";
       version = "2024-06-29";
 
-      src = pkgs.fetchFromGitHub {
-        owner = "adi1090x";
-        repo = "rofi";
-        rev = "7ba824d4915535816bd652c13d25f3326ae6c381";
-        hash = "sha256-IPtn0bDIUmSwm24YowURgNrs907RrcfrRM9TdhE2c0I=";
-      };
+      src = ./.;
 
       buildPhase = ''
         patchShebangs .

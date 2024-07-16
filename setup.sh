@@ -39,7 +39,7 @@ install_fonts() {
 		mkdir -p "$FONT_DIR"
 		cp -rf $DIR/fonts/* "$FONT_DIR"
 	fi
-	echo -e ${BYellow}"[*] Updating font cache\n" ${Color_Off}
+	echo -e ${BYellow}"[*] Updating font cache" ${Color_Off}
 	fc-cache
 }
 
@@ -53,10 +53,10 @@ install_themes() {
 	{ mkdir -p "$ROFI_DIR"; cp -rf $DIR/files/* "$ROFI_DIR"; }
 
 	if [[ -f "$ROFI_DIR/config.rasi" ]]; then
-		echo -e ${BGreen}"[*] Successfully Installed.\n" ${Color_Off}
+		echo -e ${BGreen}"[*] Successfully Installed." ${Color_Off}
 		exit 0
 	else
-		echo -e ${BRed}"[!] Failed to install.\n" ${Color_Off}
+		echo -e ${BRed}"[!] Failed to install." ${Color_Off}
 		exit 1
 	fi
 }
@@ -64,7 +64,9 @@ install_themes() {
 # Main
 main() {
 	install_fonts
+    echo ""
 	install_themes
+    echo ""
 }
 
 main
