@@ -27,14 +27,12 @@
       };
 
       buildPhase = ''
+        patchShebangs .
         chmod +x setup.sh
       '';
 
       installPhase = ''
-        mkdir -p $out/bin
-        mv setup.sh $out/bin/rofi-extended
-        mv files $out/bin
-        mv fonts $out/bin
+        ./setup.sh 
       '';
     };
   });
