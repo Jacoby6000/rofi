@@ -28,6 +28,30 @@
 
       installPhase = ''
         ./setup.sh $out $out/share/fonts/ttf
+        mkdir $out/bin
+
+        create_symlinks() {
+          local dir=$1
+          local prefix=$2
+          for sub_dir in files/$dir/*; do
+
+            # convert _ to - in sub_dir
+            sub_dir_name=$(basename $sub_dir)
+            script_output_name=$(echo $sub_dir_name | tr '_' '-')
+            
+            # Produces output bin with name rofi-${prefix}-${type-n}
+            ln -s $sub_dir/${dir}.sh $out/bin/rofi-$prefix-$script_output_name
+          done
+        }
+
+        create_symlinks "launchers" "launcher"
+        create_symlinks "powermenu" "powermenu"
+        
+        # Symlink applets to $out/bin with the name rofi-applet-$scriptName, without .sh suffix
+        for applet in files/applets/bin/*.sh; do
+          applet_name=$(basename $applet .sh)
+          ln -s $applet $out/bin/rofi-applet-$applet_name
+        done
       '';
     };
   });
