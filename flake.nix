@@ -39,8 +39,8 @@
             sub_dir_name=$(basename $sub_dir)
             script_output_name=$(echo $sub_dir_name | tr '_' '-')
             
-            # Produces output bin with name rofi-${prefix}-${type-n}
-            ln -s $sub_dir/${dir}.sh $out/bin/rofi-$prefix-$script_output_name
+            # Produces output bin with name rofi-$(prefix)-$(type-n)
+            ln -s $sub_dir/$dir.sh $out/bin/rofi-$prefix-$script_output_name
           done
         }
 
