@@ -32,15 +32,15 @@
 
         create_symlinks() {
           local dir=$1
-          local prefix=$2
+          local script_name=$2
           for sub_dir in $out/$dir/*; do
 
             # convert _ to - in sub_dir
             sub_dir_name=$(basename $sub_dir)
-            script_output_name=$(echo $sub_dir_name | tr '_' '-')
+            script_type=$(echo $sub_dir_name | tr '_' '-')
             
-            # Produces output bin with name rofi-$(prefix)-$(type-n)
-            ln -s $sub_dir/$dir.sh $out/bin/rofi-$prefix-$script_output_name
+            # Produces output bin with name rofi-$(script_name)-$(type-n)
+            ln -s $sub_dir/$script_name.sh $out/bin/rofi-$script_name-$script_type
           done
         }
 
@@ -50,7 +50,7 @@
         # Symlink applets to $out/bin with the name rofi-applet-$scriptName, without .sh suffix
         for applet in $out/applets/bin/*.sh; do
           applet_name=$(basename $applet .sh)
-          ln -s $out/$applet $out/bin/rofi-applet-$applet_name
+          ln -s $applet $out/bin/rofi-applet-$applet_name
         done
       '';
     };
