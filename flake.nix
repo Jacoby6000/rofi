@@ -33,7 +33,7 @@
         create_symlinks() {
           local dir=$1
           local prefix=$2
-          for sub_dir in files/$dir/*; do
+          for sub_dir in $out/files/$dir/*; do
 
             # convert _ to - in sub_dir
             sub_dir_name=$(basename $sub_dir)
@@ -50,7 +50,7 @@
         # Symlink applets to $out/bin with the name rofi-applet-$scriptName, without .sh suffix
         for applet in files/applets/bin/*.sh; do
           applet_name=$(basename $applet .sh)
-          ln -s $applet $out/bin/rofi-applet-$applet_name
+          ln -s $out/$applet $out/bin/rofi-applet-$applet_name
         done
       '';
     };
