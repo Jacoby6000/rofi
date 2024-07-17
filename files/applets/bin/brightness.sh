@@ -6,8 +6,26 @@
 ## Applets : Brightness
 
 # Import Current Theme
-source "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/../shared/theme.bash
-theme="$type/$style"
+INPUT_THEME="$1"
+SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+if [ -z "$INPUT_THEME" ]; then
+    source "$SCRIPT_DIR/../shared/theme.bash"
+    theme="$type/$style"
+elif [[ $1 == "-h" || $1 == "--help" ]]; then
+    echo "Usage: $0 [theme]"
+    exit 0
+else
+    theme="$INPUT_THEME"
+    if [ ! -d $theme ]; 
+        # prepend current script path if theme is not found 
+        theme="$SCRIPT_DIR/$theme"
+
+        if [ ! -d "$theme" ]; then
+          # fail if we still can't find it.
+          echo "Theme not found!"
+          exit 1
+    fi
+fi
 
 # Brightness Info
 backlight="$(printf "%.0f\n" `light -G`)"
